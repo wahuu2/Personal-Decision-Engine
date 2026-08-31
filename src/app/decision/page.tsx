@@ -12,6 +12,13 @@ export default function DecisionPage() {
   },
 ]);
 
+const [scenarios, setScenarios] = useState([
+  {
+    id: 1,
+    name: "",
+  },
+]);
+
 const addCriterion = () => {
   setCriteria([
     ...criteria,
@@ -52,6 +59,21 @@ const totalWeight = criteria.reduce(
   0
 );
 
+const addScenario = () => {
+  setScenarios([
+    ...scenarios,
+    {
+      id: Date.now(),
+      name: "",
+    },
+  ]);
+};
+
+const removeScenario = (id: number) => {
+  setScenarios(
+    scenarios.filter((scenario) => scenario.id !== id)
+  );
+};
 
   return (
     <main className="min-h-screen bg-slate-950 px-6 py-12 text-white">
@@ -214,7 +236,72 @@ const totalWeight = criteria.reduce(
     </div>
   </div>
 
-  {/* Continue */}
+  {/* Scenarios */}
+<div className="border-t border-slate-800 pt-8">
+  <div className="mb-5">
+    <h2 className="text-xl font-semibold">
+      Scenarios
+    </h2>
+
+    <p className="mt-1 text-sm text-slate-400">
+      Add the options you want to compare.
+    </p>
+  </div>
+
+  <div className="space-y-4">
+    {scenarios.map((scenario, index) => (
+      <div
+        key={scenario.id}
+        className="rounded-xl border border-slate-800 bg-slate-950 p-5"
+      >
+        <div className="mb-4 flex items-center justify-between">
+          <span className="text-sm font-medium text-slate-400">
+            Scenario {index + 1}
+          </span>
+
+          {scenarios.length > 1 && (
+            <button
+              type="button"
+              onClick={() =>
+                removeScenario(scenario.id)
+              }
+              className="text-sm text-red-400 hover:text-red-300"
+            >
+              Remove
+            </button>
+          )}
+        </div>
+
+        <label className="mb-2 block text-sm text-slate-300">
+          Scenario Name
+        </label>
+
+        <input
+          type="text"
+          value={scenario.name}
+          onChange={(e) =>
+            updateScenarioName(
+              scenario.id,
+              e.target.value
+            )
+          }
+          placeholder="e.g. Company A"
+          className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-600 focus:border-blue-500"
+        />
+      </div>
+    ))}
+  </div>
+
+  <button
+    type="button"
+    onClick={addScenario}
+    className="mt-4 rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800"
+  >
+    + Add Scenario
+  </button>
+</div>
+
+{/* Continue */}
   <button
     type="submit"
     className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-700"
