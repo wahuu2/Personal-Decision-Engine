@@ -72,7 +72,7 @@ const totalWeight = criteria.reduce(
         </div>
 
         {/* Form */}
-        <form className="space-y-8">
+       <form className="space-y-8">
   {/* Decision Title */}
   <div>
     <label
@@ -86,11 +86,11 @@ const totalWeight = criteria.reduce(
       id="title"
       type="text"
       placeholder="e.g. Which job should I take?"
-      className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-blue-500"
+      className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none placeholder:text-slate-600 focus:border-blue-500"
     />
   </div>
 
-  {/* Decision Description */}
+  {/* Description */}
   <div>
     <label
       htmlFor="description"
@@ -103,14 +103,16 @@ const totalWeight = criteria.reduce(
       id="description"
       rows={4}
       placeholder="Describe the decision you are trying to make..."
-      className="w-full resize-none rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-blue-500"
+      className="w-full resize-none rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none placeholder:text-slate-600 focus:border-blue-500"
     />
   </div>
 
   {/* Criteria */}
   <div className="border-t border-slate-800 pt-8">
     <div className="mb-5">
-      <h2 className="text-xl font-semibold">Decision Criteria</h2>
+      <h2 className="text-xl font-semibold">
+        Decision Criteria
+      </h2>
 
       <p className="mt-1 text-sm text-slate-400">
         Add the factors that matter when making this decision.
@@ -132,7 +134,7 @@ const totalWeight = criteria.reduce(
               <button
                 type="button"
                 onClick={() => removeCriterion(criterion.id)}
-                className="text-sm text-red-400 transition hover:text-red-300"
+                className="text-sm text-red-400 hover:text-red-300"
               >
                 Remove
               </button>
@@ -140,7 +142,7 @@ const totalWeight = criteria.reduce(
           </div>
 
           <div className="grid gap-4 sm:grid-cols-[1fr_140px]">
-            {/* Criterion Name */}
+            {/* Name */}
             <div>
               <label className="mb-2 block text-sm text-slate-300">
                 Name
@@ -156,7 +158,7 @@ const totalWeight = criteria.reduce(
                   )
                 }
                 placeholder="e.g. Salary"
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-blue-500"
+                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-600 focus:border-blue-500"
               />
             </div>
 
@@ -177,7 +179,7 @@ const totalWeight = criteria.reduce(
                     Number(e.target.value)
                   )
                 }
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
               />
             </div>
           </div>
@@ -189,14 +191,16 @@ const totalWeight = criteria.reduce(
     <button
       type="button"
       onClick={addCriterion}
-      className="mt-4 rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800"
+      className="mt-4 rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800"
     >
       + Add Criterion
     </button>
 
-    {/* Total Weight */}
+    {/* Total */}
     <div className="mt-6 flex items-center justify-between rounded-lg border border-slate-800 bg-slate-950 px-5 py-4">
-      <span className="font-medium">Total Weight</span>
+      <span className="font-medium">
+        Total Weight
+      </span>
 
       <span
         className={`font-bold ${
@@ -213,7 +217,7 @@ const totalWeight = criteria.reduce(
   {/* Continue */}
   <button
     type="submit"
-    className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold transition hover:bg-blue-700"
+    className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-700"
   >
     Continue to Scenarios
   </button>
